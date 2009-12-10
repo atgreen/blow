@@ -1,0 +1,32 @@
+2008-07-04  Anthony Green  <green@spindazzle.org>
+
+	* index.blo: Update.
+
+2008-07-03  Anthony Green  <green@spindazzle.org>
+
+	* WEB-INF/lisp/libs/_blowboot.lisp ("org.spindazzle.BlowServlet"):
+	define this for use in lisp code.
+	* Makefile: Make dist target more generic.
+
+2007-10-28  Anthony Green  <green@spindazzle.org>
+
+	* WEB-INF/web.xml: Change servlet mapping to only handle *.blo files.
+	* WEB-INF/lisp/webapp.lisp (create-conditional-dispatcher):
+	Correct.  Must simplify this.
+	* index.jsp: New file.
+	* WEB-INF/src/abcl-0.0.10.tar.gz: New file.
+	* WEB-INF/lib/abcl.jar: New file.
+	* style.css (margin-left): Tweak to match web docs.
+	
+2007-10-28  Anthony Green  <green@spindazzle.org>
+
+	* Makefile (dist): Don't exclude .jar files.
+	* WEB-INF/src/abcl-0.0.10.tar.gz: New file.
+	* WEB-INF/lib/abcl-0.0.10.jar: New file.
+
+2007-10-28  Anthony Green  <green@spindazzle.org>
+
+	* Makefile: Added.
+	* Created.
+	
+

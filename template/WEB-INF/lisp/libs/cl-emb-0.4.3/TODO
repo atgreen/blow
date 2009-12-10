@@ -1,0 +1,15 @@
+$Id: TODO 242 2006-02-14 15:42:01Z stesch $
+
+- Documentation
+
+- More examples
+
+- Tests
+
+- Writing own escape functions?
+
+- Better error handling
+
+- Examples for generator loop in the examples.html
+
+- Export GETF-EMB

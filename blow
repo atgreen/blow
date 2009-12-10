@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if test -z $BLOW_HOME; then
+  BLOW_HOME=/usr/share/blow
+fi
+
+if test -z "$1"; then
+  echo "usage: blow PATH - install a blow web application template at PATH"
+else
+  cp -r $BLOW_HOME/template $1;
+fi

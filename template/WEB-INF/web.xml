@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+;;; web.xml - sample web application configuration file
+;;; Copyright (C) 2007 Anthony Green <green@spindazzle.org>
+;;; 
+;;; This file is part of BLOW - A Web Application Framework in LISP.
+;;;
+;;; BLOW is free software; you can redistribute it and/or modify it
+;;; under the terms of the GNU Lesser General Public License as
+;;; published by the Free Software Foundation; either version 3, or
+;;; (at your option) any later version.
+;;;
+;;; BLOW is distributed in the hope that it will be useful, but
+;;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;;; Lesser General Public License for more details.
+;;;
+;;; You should have received a copy of the GNU Lesser General Public
+;;; License along with BLOW; see the file COPYING.LESSER.  If not,
+;;; write to the Free Software Foundation, Inc., 51 Franklin Street,
+;;; Fifth Floor, Boston, MA 02110-1301 USA.
+-->
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <description>
+      blow
+    </description>
+
+    <display-name>BLOW: Lisp on Web</display-name>
+
+    <servlet>
+      <servlet-name>
+        org.spindazzle.BlowServlet
+      </servlet-name>
+      <servlet-class>
+        org.spindazzle.BlowServlet
+      </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>org.spindazzle.BlowServlet</servlet-name>
+      <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>

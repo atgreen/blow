@@ -1,0 +1,74 @@
+<html>
+<title>(blow)</title>
+<style TYPE="text/css">
+<!--
+body
+{
+font-family: verdana, arial, 'sans serif'; 
+background-color: #b0b0b0;
+margin-left: 15%;
+margin-right: 15%;
+}
+--></style><head>
+</head>
+<body>
+<h1>(blow)</h1>
+A Lisp-based Web Application Framework for Java Servlet Containers.
+<hr>
+
+<center><h2>Congratulations!</h2></center>
+
+<center>You're running <b>blow</b>.</center>
+
+<br><br>
+
+<% 
+(defconstant *day-names*
+    '("Monday" "Tuesday" "Wednesday"
+      "Thursday" "Friday" "Saturday"
+      "Sunday"))
+
+(multiple-value-bind
+ (second minute hour date month year day-of-week dst-p tz)
+  (get-decoded-time)
+    (cl-who:with-html-output (*standard-output*)
+      (cl-who:fmt "<center>It is now ~2,'0d:~2,'0d:~2,'0d on ~a, ~d/~2,'0d/~d (GMT~@d).</center>"
+       hour
+       minute
+       second
+       (nth day-of-week *day-names*)
+       month
+       date
+       year
+       (- tz))))
+%>
+
+<h3>Contact</h3>
+
+The <a href="http://groups.google.com/group/blow-discuss">blow-discuss</a>
+google group provides a forum for questions about the blow framework
+and related technologies.
+
+<h3>License</h3>
+The core bits of blow are licensed to you under the following terms:
+
+<pre><tt>;;; BLOW is free software; you can redistribute it and/or modify it
+;;; under the terms of the GNU Lesser General Public License as
+;;; published by the Free Software Foundation; either version 3, or
+;;; (at your option) any later version.
+;;;
+;;; BLOW is distributed in the hope that it will be useful, but
+;;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;;; Lesser General Public License for more details.
+</tt></pre>
+The blow distribution also contains third-party source code licensed
+under various FOSS licenses.  See the source distribution for details.
+
+<h3>Author</h3>
+blow was assembled by <a href="http://spindazzle.org/greenblog">Anthony Green</a>.
+
+</body>
+</html>
+
+
