@@ -29,9 +29,10 @@
   written in Common Lisp."
   :author "Anthony Green <green@spindazzle.org>"
   :licence "LGPLv3+"
-  :version "0.0"
+  :version "0.2"
   :depends-on (:cl-who :puri :jfli :cl-ppcre :cl-emb)
   :serial t
   :components ((:file "packages")
+	       (:file "rdf")
 	       (:file "blow"))
-  :properties ((version "0.0")))
+  :properties ((version "0.2")))

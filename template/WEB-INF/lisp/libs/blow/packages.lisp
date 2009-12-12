@@ -23,8 +23,39 @@
 
 (in-package :cl-user)
 
+(defpackage :blow-gen          
+  (:use :common-lisp :jfli))
+
+(in-package :blow-gen)
+
+(def-java-class "com.hp.hpl.jena.rdf.model.Model")
+(def-java-class "com.hp.hpl.jena.rdf.model.ModelFactory")
+(def-java-class "com.hp.hpl.jena.rdf.model.Statement")
+(def-java-class "com.hp.hpl.jena.rdf.model.Property")
+(def-java-class "com.hp.hpl.jena.rdf.model.Resource")
+(def-java-class "com.hp.hpl.jena.rdf.model.StmtIterator")
+(def-java-class "com.hp.hpl.jena.rdf.model.RDFNode")
+(def-java-class "com.hp.hpl.jena.rdf.model.Literal")
+(def-java-class "com.hp.hpl.jena.graph.Triple")
+(def-java-class "com.hp.hpl.jena.graph.Node")
+(def-java-class "com.hp.hpl.jena.graph.FrontsNode")
+
+;;Jena-ARQ
+(def-java-class "com.hp.hpl.jena.query.Query")
+(def-java-class "com.hp.hpl.jena.query.QueryFactory")
+(def-java-class "com.hp.hpl.jena.query.QueryExecutionFactory")
+(def-java-class "com.hp.hpl.jena.query.QueryExecution")
+(def-java-class "com.hp.hpl.jena.query.ResultSet")
+(def-java-class "com.hp.hpl.jena.query.QuerySolution")
+
+(def-java-class "com.hp.hpl.jena.sparql.syntax.ElementGroup")
+
 (defpackage :blow
-  (:use :cl :cl-who :cl-ppcre :cl-emb)
+  (:use :cl :cl-who :cl-ppcre :cl-emb :jfli :java
+	"com.hp.hpl.jena.rdf.model"
+	"com.hp.hpl.jena.graph"
+	"com.hp.hpl.jena.query"
+	"com.hp.hpl.jena.sparql.syntax")
   (:export :create-conditional-dispatcher
 	   :create-prefix-dispatcher
 	   :create-regex-dispatcher

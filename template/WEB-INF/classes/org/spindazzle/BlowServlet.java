@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------
 // BlowServlet.java - The blow servlet wrapper
-// Copyright (C) 2007 Anthony Green <green@spindazzle.org>
+// Copyright (C) 2007, 2009  Anthony Green <green@spindazzle.org>
 // 
 // This file is part of BLOW - A Web Application Framework in LISP.
 //
@@ -59,62 +59,42 @@ public class BlowServlet extends HttpServlet
       log("making new interpreter");
       interpreter = Interpreter.createInstance();
     }
-
-    try 
-      {
-	LispThread thread = LispThread.currentThread();
-	Symbol dbgrhkfunSym = Lisp.PACKAGE_SYS.findAccessibleSymbol("%DEBUGGER-HOOK-FUNCTION");
-	debuggerHook = dbgrhkfunSym.getSymbolFunction();
-	// thread.bindSpecial(Symbol.DEBUGGER_HOOK, debuggerHook);
+    ;
+    LispThread thread = LispThread.currentThread();
+    Symbol dbgrhkfunSym = Lisp.PACKAGE_SYS.findAccessibleSymbol("%DEBUGGER-HOOK-FUNCTION");
+    debuggerHook = dbgrhkfunSym.getSymbolFunction();
+    // thread.bindSpecial(Symbol.DEBUGGER_HOOK, debuggerHook);
 	
-	Load.load(config.getServletContext().getRealPath("WEB-INF/lisp/libs/_blowboot.lisp"));
-
-	org.armedbear.lisp.Package blowPackage = Packages.findPackage("BLOW");
-	lispServiceGetFun = (Function)blowPackage.findExternalSymbol(new SimpleString("SERVICE-HTTP-GET-REQUEST")).getSymbolFunction();
-      } catch(ConditionThrowable e) {
-      try 
-	{
-	  System.out.print(e.getCondition().writeToString());
-	} catch (ConditionThrowable e2) {
-        }
-    }
+    Load.load(config.getServletContext().getRealPath("WEB-INF/lisp/libs/_blowboot.lisp"));
     
+    org.armedbear.lisp.Package blowPackage = Packages.findPackage("BLOW");
+    lispServiceGetFun = (Function)blowPackage.findExternalSymbol(new SimpleString("SERVICE-HTTP-GET-REQUEST")).getSymbolFunction();
   }
 
   public void doGet (HttpServletRequest req,
 		     HttpServletResponse res)
-    throws ServletException, IOException
-  {
-    HttpSession session = req.getSession();
-
-    LispThread thread = LispThread.currentThread();
-    // thread.bindSpecial(Symbol.DEBUGGER_HOOK, debuggerHook);
-
-    LispObject usession = (LispObject) session.getAttribute("blow");
-    if (usession == null)
-      {
-	org.armedbear.lisp.Package webappPackage = Packages.findPackage("WEBAPP");
-	lispServiceFun = (Function)webappPackage.findExternalSymbol(new SimpleString("MAKE-USER-SESSION")).getSymbolFunction();
-	try
-	  {
-	    usession = lispServiceFun.execute();
-	  }
-	catch(ConditionThrowable e) {
-	  try {
-	      System.out.print(e.getCondition().writeToString());
-	  } catch (ConditionThrowable e2) {
-	  }
-	}
+      throws ServletException, IOException
+    {
+	HttpSession session = req.getSession();
+	
+	LispThread thread = LispThread.currentThread();
+	// thread.bindSpecial(Symbol.DEBUGGER_HOOK, debuggerHook);
+	
+	LispObject usession = (LispObject) session.getAttribute("blow");
+	if (usession == null)
+	    {
+		org.armedbear.lisp.Package webappPackage = Packages.findPackage("WEBAPP");
+		lispServiceFun = (Function)webappPackage.findExternalSymbol(new SimpleString("MAKE-USER-SESSION")).getSymbolFunction();
+		usession = lispServiceFun.execute();
+	    }
 	log ("MAKE-USER-SESSION => " + usession.toString());
 	  
 	session.setAttribute("blow", usession);
-      }
 	
-    try {
 	lispServiceGetFun.execute(new JavaObject(req), new JavaObject(res), usession);
-    } catch (ConditionThrowable c) {
-	log("throws " + c.toString());
     }
-  }
 }
+
+
+
 

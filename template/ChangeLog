@@ -1,3 +1,13 @@
+2009-12-11  Anthony Green  <green@spindazzle.org>
+
+	* WEB-INF/classes/org/spindazzle/BlowServlet.java: Update for ABCL
+	0.17.0.
+	* WEB-INF/lisp/libs/blow/blow.asd: Add rdf.lisp.  Update version.
+	* WEB-INF/lib/abcl.jar: Update to ABCL 0.17.0.
+	* WEB-INF/lisp/libs/cl-ppcre-2.0.3: Upgrade.
+	* WEB-INF/lisp/libs/cl-who-11.1: Upgrade.
+	* WEB-INF/lisp/libs/cl-emb-0.4.4: Upgrade.
+
 2008-07-04  Anthony Green  <green@spindazzle.org>
 
 	* index.blo: Update.
@@ -17,7 +27,7 @@
 	* WEB-INF/src/abcl-0.0.10.tar.gz: New file.
 	* WEB-INF/lib/abcl.jar: New file.
 	* style.css (margin-left): Tweak to match web docs.
-	
+
 2007-10-28  Anthony Green  <green@spindazzle.org>
 
 	* Makefile (dist): Don't exclude .jar files.
@@ -28,5 +38,5 @@
 
 	* Makefile: Added.
 	* Created.
-	
+
 
