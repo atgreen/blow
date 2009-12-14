@@ -1,5 +1,9 @@
 2009-12-14  Anthony Green  <green@spindazzle.org>
 
+	* WEB-INF/lisp/libs/anaphora-0.9.3: Import.
+
+2009-12-14  Anthony Green  <green@spindazzle.org>
+
 	* WEB-INF/lisp/libs/blow/blow.asd (:blow): Depend on parenscript
 	package.
 	* WEB-INF/lisp/libs/parenscript-20090921: Imported.
