@@ -1,0 +1,25 @@
+
+This is a BLOW workspace. 
+
+Here's a description of the directory layout...
+
+.
+├── app		This is your web application directory.
+├── bin		Contains useful scripts.
+├── lib		Contains useful library code for the workspace.
+└── var		
+    ├── log	Log files for the test server.
+    └── pids	PID files for the test server.
+
+
+All files have already been committed to a local git repository.  Feel
+free to edit them and commit changes as you go.
+
+The bin directory contains the following useful scripts:
+
+* start
+  Start the blow test server.  Log files are recorded under ./var/log.
+
+* stop
+  Stop the blow test server.
+

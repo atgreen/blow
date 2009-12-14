@@ -1,0 +1,4 @@
+*~
+*.abcl
+var/log/*
+var/pid/*

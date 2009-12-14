@@ -1,11 +1,38 @@
 #!/bin/sh
 
+# blow - Copyright (C) 2009  Anthony Green <green@spindazzle.org>
+#
+# This file is part of BLOW.
+#
+# BLOW is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 3, or (at your option) any
+# later version.
+# 
+# BLOW is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with BLOW; see the file COPYING3.  If not see
+# <http://www.gnu.org/licenses/>. 
+# 
+
+set -x
+
 if test -z $BLOW_HOME; then
   BLOW_HOME=/usr/share/blow
 fi
 
-if test -z "$1"; then
-  echo "usage: blow PATH - install a blow web application template at PATH"
+if test -z $1; then
+    echo $"Usage: $0 PATH" 1>&2
+    RETVEL=2
 else
-  cp -r $BLOW_HOME/template $1;
+    mkdir -p $1;
+    cp -r $BLOW_HOME/template/* $1
+    (cd $1; git init; git add *; git commit -m "Project Created")
+    RETVAL=$?
 fi
+
+exit $RETVAL
