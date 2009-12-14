@@ -1,6 +1,6 @@
 ;;; ----------------------------------------------------------*- lisp -*------
 ;;; blow.asd - ASDF system definition file for BLOW
-;;; Copyright (C) 2007 Anthony Green <green@spindazzle.org>
+;;; Copyright (C) 2007, 2009  Anthony Green <green@spindazzle.org>
 ;;; 
 ;;; This file is part of BLOW - A Web Application Framework in LISP.
 ;;;
@@ -30,7 +30,7 @@
   :author "Anthony Green <green@spindazzle.org>"
   :licence "LGPLv3+"
   :version "0.2"
-  :depends-on (:cl-who :puri :jfli :cl-ppcre :cl-emb)
+  :depends-on (:cl-who :puri :jfli :cl-ppcre :cl-emb :parenscript)
   :serial t
   :components ((:file "packages")
 	       (:file "rdf")
