@@ -1,8 +1,12 @@
+2009-12-16  Anthony Green  <green@spindazzle.org>
+
+	* blow.lisp (read-mime-types): Add all mime type handling.
+
 2008-07-03  Anthony Green  <green@spindazzle.org>
 
 	* blow.lisp (page-serve-static-content): Define.
 	(*DISPATCH-LIST*): Add static content handler.
-	
+
 2007-10-28  Anthony Green  <green@spindazzle.org>
 
 	* blow.lisp (create-conditional-dispatcher): Remove some debugging

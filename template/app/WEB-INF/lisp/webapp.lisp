@@ -1,6 +1,6 @@
 ;;; ----------------------------------------------------------*- lisp -*------
 ;;; webapp.lisp - A Sample BLOW Web Application  
-;;; Copyright (C) 2007 Anthony Green <green@spindazzle.org>
+;;; Copyright (C) 2007, 2009 Anthony Green <green@spindazzle.org>
 ;;; 
 ;;; This file is part of BLOW - A Web Application Framework in LISP.
 ;;;
@@ -51,7 +51,7 @@
 
 (def-who-page page-hello-world-random (request response session)
   (:html (:head (:title "BLOW: Lisp On Web")
-		(:link :rel "stylesheet" :type "text/css" :href "/demo/style.css"))
+		(:link :rel "stylesheet" :type "text/css" :href "/style.css"))
 	 (:body
 	  (:p "Hello World!  This web application blows.")
 	  (:p (fmt "Session: ~A" session))
@@ -60,14 +60,14 @@
 (defvar *DEFAULT-ERROR-401* #'page-hello-world-random)
 
 (def-html-page page-htmlize-lisp-source (request response session)
-  (let ((filename (concatenate 'string (namestring cl-user::*blow-home-directory*) "../../../.." 
+  (let ((filename (concatenate 'string (namestring cl-user::*blow-home-directory*) "../../.." 
 			       (|javax.servlet.http|::httpservletrequest.getrequesturi request))))
     (with-output-to-string (out)
 			   (let ((*standard-output* out))
 			     (htmlize-file filename)))))
 
 (defun page-safe-htmlize-lisp-source (request response session)
-  (let ((filename (concatenate 'string (namestring cl-user::*blow-home-directory*) "../../../.." 
+  (let ((filename (concatenate 'string (namestring cl-user::*blow-home-directory*) "../../.." 
 			       (|javax.servlet.http|::httpservletrequest.getrequesturi request))))
     (cond ((probe-file filename)
 	   (page-htmlize-lisp-source request response session))
@@ -77,7 +77,7 @@
 ;;; Register the three generators on the *DISPATCH-LIST* (exported
 ;;; from the BLOW package).
 
-(push (create-prefix-dispatcher "/demo/hello" #'page-hello-world-random)
+(push (create-prefix-dispatcher "/hello" #'page-hello-world-random)
       *DISPATCH-LIST*)
 
 (push (create-regex-dispatcher ".*\.lisp$" #'page-safe-htmlize-lisp-source)
