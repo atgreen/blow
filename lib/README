@@ -1,0 +1,48 @@
+The purpose of this file is to document the origins and licenses for
+the bundled binary jar files.
+
+=====================================================================
+WINSTONE
+
+http://winstone.sourceforge.net/
+
+winstone-0.9.10.jar
+
+WINSTONE is dual licensed using either the Lesser GNU Public License
+(LGPL) as described in LICENSE-LGPL.txt, or the Common Development and
+Distribution License (CDDL) as described in LICENSE-CDDL.txt, both in
+this directory.
+
+=====================================================================
+APACHE TOMCAT/JASPER
+
+http://tomcat.apache.org/download-60.cgi
+
+blow contains some elements of the Apache Tomcat 6.0.20 distribution
+is order to support JSPs.  The following binary jars are included:
+
+jasper-6.0.20.jar
+jasper-el-6.0.20.jar
+tomcat6-jsp-2.1-api-6.0.20.jar
+tomcat6-servlet-2.5-api-6.0.20.jar
+tomcat-coyote-6.0.20.jar
+tomcat-i18n-es-6.0.20.jar
+tomcat-i18n-fr-6.0.20.jar
+tomcat-i18n-ja-6.0.20.jar
+tomcat-juli-6.0.20.jar
+annotations-api-6.0.20.jar
+catalina-6.0.20.jar
+catalina-ant-6.0.20.jar
+catalina-ha-6.0.20.jar
+catalina-tribes-6.0.20.jar
+el-api-6.0.20.jar
+
+These jar files are distributed under the terms of Apache Software
+License 2.0, described in LICENSE-2.0.txt in this directory.
+
+=====================================================================
+[commons-collections-tomcat5].jar
+[commons-dbcp-tomcat5].jar
+[commons-pool-tomcat5].jar
+[ecj].jar
+

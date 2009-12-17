@@ -1,3 +1,9 @@
+2009-12-17  Anthony Green  <green@spindazzle.org>
+
+	* WEB-INF/lib/README: New file.
+	* WEB-INF/lib/gpl.html: New file.
+	* WEB-INF/lib/LICENSE-2.0.txt: New file.
+
 2009-12-14  Anthony Green  <green@spindazzle.org>
 
 	* WEB-INF/lisp/libs/anaphora-0.9.3: Import.
