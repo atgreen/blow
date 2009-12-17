@@ -17,4 +17,47 @@ The core bits of blow are licensed to you under the following terms:
 The blow distribution also contains third-party source code licensed
 under various FOSS licenses. See the source distribution for details.
 
-blow was assembled by Anthony Green. 
+blow was assembled by Anthony Green <green@spindazzle.org>
+
+
+blow is easy to use...
+
+$ blow myapp
+[output redacted]
+$ cd myapp
+$ ./bin/start
+
+Then point your browser at http://localhost:9999.
+
+
+Here's how it works...
+
+$ blow myapp
+
+The blow command creates a new directory called myapp and fills it
+with a template of a Lisp web application as well as supporting
+libraries and scripts.  It also initializes the whole lot as a git
+repository, so your changes are easily tracked and recorded.  
+
+Look under the myapp/app directory for your web app source.  The 
+current template looks something like this:
+
+-rw-r--r-- 1 green green 1570 2009-12-14 18:01 ChangeLog
+-rw-r--r-- 1 green green 1951 2009-12-12 00:27 index.blo
+-rw-r--r-- 1 green green   33 2009-12-12 00:27 index.jsp
+-rw-r--r-- 1 green green  659 2009-12-12 00:27 Makefile
+-rw-r--r-- 1 green green  117 2009-12-12 00:27 style.css
+drwxr-xr-x 5 green green 4096 2009-12-12 00:32 WEB-INF
+
+Most of the good stuff is under WEB-INF/lisp.
+
+
+$ cd myapp
+$ ./bin/start
+
+blow ships with a small servlet container suitable for testing your
+web application.  You run with the bin/start command.  Once you are
+happy with your app, simply generate a .war file from the myapp/app
+contents and deploy it within your production servlet container.
+
+Have fun!

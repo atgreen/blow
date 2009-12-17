@@ -23,17 +23,34 @@
 # BLOWHOME=/usr/share/blow
 
 if test -z $BLOWHOME; then
-    BLOWHOME=`dirname $0`
+    BLOWHOME=`dirname $0`;
+    BLOWHOME=`(cd $BLOWHOME; pwd)`
+fi
+
+GIT=`which git 2>/dev/null`
+if test -z $GIT; then
+    echo $"ERROR: blow can't find git.  Please install it." 1>&2
+    exit 2
 fi
 
 if test -z $1; then
     echo $"Usage: $0 PATH" 1>&2
     RETVEL=2
 else
-    mkdir -p $1;
-    cp -r $BLOWHOME/template/* $1
-    (cd $1; git init; git add *; git commit -m "Project Created")
-    RETVAL=$?
+    if test -d $1; then
+	echo $"ERROR: $1 exists in this directory" 1>&2
+	RETVAL=2
+    elif test -f $1; then
+	echo $"ERROR: $1 exists in this directory" 1>&2
+	RETVAL=2
+    else
+	mkdir -p $1;
+	cp -r $BLOWHOME/template/* $1
+	RCMD="s|@BLOWHOME@|$BLOWHOME|"
+	sed -i -e $RCMD $1/bin/start
+	(cd $1; git init; git add *; git commit -m "Project Created")
+	RETVAL=$?
+    fi
 fi
 
 exit $RETVAL
