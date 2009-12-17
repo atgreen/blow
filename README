@@ -56,7 +56,7 @@ $ cd myapp
 $ ./bin/start
 
 blow ships with a small servlet container suitable for testing your
-web application.  You run with the bin/start command.  Once you are
+web application.  Run it with the bin/start command.  Once you are
 happy with your app, simply generate a .war file from the myapp/app
 contents and deploy it within your production servlet container.
 
