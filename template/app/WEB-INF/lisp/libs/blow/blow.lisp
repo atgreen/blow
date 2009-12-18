@@ -147,8 +147,8 @@
   "Dispatches *REQUEST* based upon rules in the DISPATCH-TABLE.
 This method provides the default Hunchentoot behavior."
   (loop for dispatcher in *DISPATCH-LIST*
-	for action = (progn (print dispatcher) (funcall dispatcher request response session))
-	when action return (progn (print dispatcher) (funcall action request response session))
+	for action = (funcall dispatcher request response session)
+	when action return (funcall action request response session)
 	finally (page-default-page request response session)))
 
 ;;; --------------------------------------------------------------------------

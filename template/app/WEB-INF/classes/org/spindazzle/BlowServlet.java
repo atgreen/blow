@@ -87,14 +87,10 @@ public class BlowServlet extends HttpServlet
 		lispServiceFun = (Function)webappPackage.findExternalSymbol(new SimpleString("MAKE-USER-SESSION")).getSymbolFunction();
 		usession = lispServiceFun.execute();
 	    }
-	log ("MAKE-USER-SESSION => " + usession.toString());
+	// log ("MAKE-USER-SESSION => " + usession.toString());
 	  
 	session.setAttribute("blow", usession);
 	
 	lispServiceGetFun.execute(new JavaObject(req), new JavaObject(res), usession);
     }
 }
-
-
-
-

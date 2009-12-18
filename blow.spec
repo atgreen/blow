@@ -1,6 +1,6 @@
 Name:		blow
 Version:	0.3
-Release:	2%{?dist}
+Release:	3%{?dist}
 License:	GPLv3
 URL:		http://spindazzle.org/blow
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)

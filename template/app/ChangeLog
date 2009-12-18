@@ -1,5 +1,12 @@
 2009-12-18  Anthony Green  <green@spindazzle.org>
 
+	* WEB-INF/lisp/libs/blow/blow.lisp (service-http-get-request):
+	Remove debugging output.
+	* WEB-INF/classes/org/spindazzle/BlowServlet.java: Ditto.
+	* WEB-INF/classes/org/spindazzle/BlowServlet.class: Rebuilt.
+
+2009-12-18  Anthony Green  <green@spindazzle.org>
+
 	* javascripts/builder.js, javascripts/controls.js,
 	javascripts/dragdrop.js, javascripts/effects.js,
 	javascripts/MIT-LICENSE, javascripts/prototype.js,
