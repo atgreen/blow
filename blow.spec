@@ -1,6 +1,6 @@
 Name:		blow
 Version:	0.3
-Release:	1%{?dist}
+Release:	2%{?dist}
 License:	GPLv3
 URL:		http://spindazzle.org/blow
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -35,7 +35,9 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/blow
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
 
+rm template/app/WEB-INF/lib/abcl.jar
 tar cf - template | (cd $RPM_BUILD_ROOT%{_datadir}/blow; tar xf -)
+tar cf - lib | (cd $RPM_BUILD_ROOT%{_datadir}/blow; tar xf -)
 build-jar-repository $RPM_BUILD_ROOT%{_datadir}/blow/template/app/WEB-INF/lib abcl
 install -p -m 555 blow $RPM_BUILD_ROOT%{_bindir}
 
@@ -49,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/blow
 
 %changelog
+* Mon Dec 14 2009 Anthony Green <green@spindazzle.org> - 0.3-2
+- Fix lib installation.
+
 * Mon Dec 14 2009 Anthony Green <green@spindazzle.org> - 0.3-1
 - Upgrade.
 

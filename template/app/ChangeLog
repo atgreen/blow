@@ -1,3 +1,11 @@
+2009-12-18  Anthony Green  <green@spindazzle.org>
+
+	* javascripts/builder.js, javascripts/controls.js,
+	javascripts/dragdrop.js, javascripts/effects.js,
+	javascripts/MIT-LICENSE, javascripts/prototype.js,
+	javascripts/scriptaculous.js, javascripts/slider.js,
+	javascripts/sound.js, javascripts/unittest.js: New files.
+
 2009-12-17  Anthony Green  <green@spindazzle.org>
 
 	* WEB-INF/lib/README: New file.

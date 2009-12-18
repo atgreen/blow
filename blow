@@ -48,6 +48,11 @@ else
 	cp -r $BLOWHOME/template/* $1
 	RCMD="s|@BLOWHOME@|$BLOWHOME|"
 	sed -i -e $RCMD $1/bin/start
+	ABCL=`which abcl`
+	cp $ABCL $1/bin/compile
+	FIXCP="s|-cp.|-classpath=$BLOWHOME/lib/tomcat6-servlet-2.5-api-6.0.20.jar:../../classes:../../lib/log4j-1.2.13.jar:../../lib/slf4j-log4j12-1.5.6.jar:../../lib/slf4j-api-1.5.6.jar:../../lib/xercesImpl-2.7.1.jar:../../lib/arq-2.8.1.jar:../../lib/jena-2.6.2.jar:|"
+	sed -i -e $FIXCP $1/bin/compile
+	sed -i -e "s|Main |Main --load _blowboot.lisp --eval '(quit)' |" $1/bin/compile
 	(cd $1; git init; git add *; git commit -m "Project Created")
 	RETVAL=$?
     fi
