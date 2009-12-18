@@ -7,11 +7,8 @@
 
 2009-12-18  Anthony Green  <green@spindazzle.org>
 
-	* javascripts/builder.js, javascripts/controls.js,
-	javascripts/dragdrop.js, javascripts/effects.js,
-	javascripts/MIT-LICENSE, javascripts/prototype.js,
-	javascripts/scriptaculous.js, javascripts/slider.js,
-	javascripts/sound.js, javascripts/unittest.js: New files.
+	* javascripts/jquery-1.3.2.min.js, javascripts/MIT-LICENSE.txt,
+	javascripts/GPL-LICENSE.txt: New files.
 
 2009-12-17  Anthony Green  <green@spindazzle.org>
 
