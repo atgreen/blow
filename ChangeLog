@@ -1,3 +1,7 @@
+2010-01-08  Anthony Green  <green@spindazzle.org>
+
+	* template/bin/start: Tweak paths for cygwin.
+
 2009-12-18  Anthony Green  <green@spindazzle.org>
 
 	* blow.spec: Fixed.

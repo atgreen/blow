@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# start - Copyright (C) 2009  Anthony Green <green@spindazzle.org>
+# start - Copyright (C) 2009, 2010  Anthony Green <green@spindazzle.org>
 #
 # This file is part of BLOW.
 #
@@ -21,7 +21,18 @@
 
 BLOWHOME=@BLOWHOME@
 
-java -jar $BLOWHOME/lib/winstone-0.9.10.jar --useJasper --httpPort=9999 --ajpPort=-1 --commonLibFolder=$BLOWHOME/lib `dirname $0`/../app
+case `uname` in
+  CYGWIN*)
+	WINSTONE=`cygpath -m $BLOWHOME/lib/winstone-0.9.10.jar`
+	LIBFOLDER=`cygpath -m $BLOWHOME/lib` 
+	;;
+  *)
+	WINSTONE=$BLOWHOME/lib/winstone-0.9.10.jar
+	LIBFOLDER=$BLOWHOME/lib
+	;;
+esac
+
+java -jar $WINSTONE --useJasper --httpPort=9999 --ajpPort=-1 --commonLibFolder=$LIBFOLDER `dirname $0`/../app
 RETVAL=$?
 
 exit $RETVAL
