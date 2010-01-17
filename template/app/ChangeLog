@@ -1,3 +1,7 @@
+2010-01-16  Anthony Green  <green@spindazzle.org>
+
+	* WEB-INF/appengine-web.xml: New file.
+
 2009-12-18  Anthony Green  <green@spindazzle.org>
 
 	* WEB-INF/lisp/libs/blow/blow.lisp (service-http-get-request):
