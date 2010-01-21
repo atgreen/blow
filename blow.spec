@@ -1,5 +1,5 @@
 Name:		blow
-Version:	0.3
+Version:	0.4
 Release:	3%{?dist}
 License:	GPLv3
 URL:		http://spindazzle.org/blow
@@ -51,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/blow
 
 %changelog
+* Mon Dec 14 2009 Anthony Green <green@spindazzle.org> - 0.4-1
+- Upgrade.
+
 * Mon Dec 14 2009 Anthony Green <green@spindazzle.org> - 0.3-2
 - Fix lib installation.
 

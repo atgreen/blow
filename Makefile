@@ -1,4 +1,4 @@
-VERSION=0.3
+VERSION=0.4
 
 SOURCES = blow blow.spec ChangeLog lib Makefile README template
 

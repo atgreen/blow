@@ -1,3 +1,8 @@
+2010-01-21  Anthony Green  <green@spindazzle.org>
+
+	* Makefile (VERSION): Update.
+	* blow.spec: Update.
+
 2010-01-08  Anthony Green  <green@spindazzle.org>
 
 	* template/bin/start: Tweak paths for cygwin.
