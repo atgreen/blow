@@ -1,0 +1,40 @@
+--- flexi-streams-1.0.7/in-memory.lisp	2008-05-19 09:57:07.000000000 +0200
++++ flexi-streams/in-memory.lisp	2009-07-09 08:55:25.000000000 +0200
+@@ -126,7 +126,7 @@
+     (error 'in-memory-stream-closed-error
+            :stream stream)))
+ 
+-(defmethod stream-element-type ((stream in-memory-stream))
++(defmethod #-:abcl stream-element-type #+:abcl stream-stream-element-type ((stream in-memory-stream))
+   "The element type is always OCTET by definition."
+   (declare #.*standard-optimize-settings*)
+   'octet)
+--- flexi-streams-1.0.7/stream.lisp	2008-05-20 00:32:56.000000000 +0200
++++ flexi-streams/stream.lisp	2009-07-09 08:55:25.000000000 +0200
+@@ -79,7 +79,7 @@
+            :element-type new-value
+            :stream flexi-stream)))
+ 
+-(defmethod stream-element-type ((stream flexi-stream))
++(defmethod #-:abcl stream-element-type #+:abcl stream-stream-element-type ((stream flexi-stream))
+   "Returns the element type that was provided by the creator of
+ the stream."
+   (declare #.*standard-optimize-settings*)
+@@ -87,7 +87,7 @@
+       stream
+     element-type))
+ 
+-(defmethod close ((stream flexi-stream) &key abort)
++(defmethod #-:abcl close #+:abcl stream-close ((stream flexi-stream) &key abort)
+   "Closes the flexi stream by closing the underlying `real'
+ stream."
+   (declare #.*standard-optimize-settings*)
+@@ -97,7 +97,7 @@
+            (close stream :abort abort))
+           (t nil))))
+ 
+-(defmethod open-stream-p ((stream flexi-stream))
++(defmethod #-:abcl open-stream-p #+:abcl stream-open-stream-p ((stream flexi-stream))
+   "A flexi stream is open if its underlying stream is open."
+   (declare #.*standard-optimize-settings*)
+   (with-accessors ((stream flexi-stream-stream))
