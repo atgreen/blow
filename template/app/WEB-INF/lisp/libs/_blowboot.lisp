@@ -1,6 +1,6 @@
 ;;; ----------------------------------------------------------*- lisp -*------
 ;;; _blowboot.lisp - startup file for BLOW
-;;; Copyright (C) 2007, 2008 Anthony Green <green@spindazzle.org>
+;;; Copyright (C) 2007, 2008, 2010 Anthony Green <green@spindazzle.org>
 ;;; 
 ;;; This file is part of BLOW - A Web Application Framework in LISP.
 ;;;
@@ -33,9 +33,10 @@
            (dolist (dir-candidate
                      (directory (concatenate 'string (namestring systems-dir) "*")))
              ;; skip dirs starting with a _
-	     (let ((name (car (last (pathname-directory dir-candidate)))))
-	       (unless (equal #\_ (elt name 0))
-		 (pushnew dir-candidate asdf:*central-registry* :test 'equal))))))
+	     (if (eq (pathname-name dir-candidate) nil) ; true only if a directory
+		 (let ((name (car (last (pathname-directory dir-candidate)))))
+		   (unless (equal #\_ (elt name 0))
+		     (pushnew dir-candidate asdf:*central-registry* :test 'equal)))))))
     ;; here, we probably may even (setf asdf:*central-registry* nil)
     (push-all *blow-home-directory*)))
 
@@ -46,8 +47,6 @@
 	   (concatenate 'string (namestring *blow-home-directory*) ".."))) 
 	 asdf:*central-registry* :test 'equal)
 (pushnew *blow-home-directory* asdf:*central-registry* :test 'equal)
-
-(write asdf:*central-registry*)
 
 (asdf:oos 'asdf:load-op :jfli)
 (jfli:def-java-class "java.io.PrintWriter")

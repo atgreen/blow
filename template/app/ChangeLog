@@ -1,10 +1,16 @@
+2010-10-12  Anthony Green  <green@spindazzle.org>
+
+	* WEB-INF/lib/abcl.jar: Update to 0.22.0.
+	* WEB-INF/lisp/libs/_blowboot.lisp (reread-blow-asdf-registry):
+	Compatibility change for 0.22.0.
+
 2010-04-11  Anthony Green  <green@spindazzle.org>
 
-	* WEB-INF/lib/abcl.jar: Update to 1.19.1.
+	* WEB-INF/lib/abcl.jar: Update to 0.19.1.
 
 2010-01-19  Anthony Green  <green@spindazzle.org>
 
-	* WEB-INF/lib/abcl.jar: Update to 1.18.1.
+	* WEB-INF/lib/abcl.jar: Update to 0.18.1.
 
 2010-01-16  Anthony Green  <green@spindazzle.org>
 
